@@ -12,6 +12,6 @@ echo "=== Checking Flutter Version ==="
 flutter --version
 
 echo "=== Building Flutter Web ==="
-flutter build web --release --web-renderer canvaskit
+flutter build web --release
 
 echo "=== Build Complete ==="
