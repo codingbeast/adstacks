@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'constants/constants.dart';
 import 'layout/main_layout.dart';
 
+/// Bootstrap entry point for the AdStacks Premium Dashboard application.
 void main() {
+  // Ensure Flutter binding is fully initialized before launching the app
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
+/// Root widget of the application configuring the global Material 3 theme,
+/// definitive design system color palettes, and adaptive master layout.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -22,6 +27,7 @@ class MyApp extends StatelessWidget {
           surface: AppColors.background,
         ),
       ),
+      // Launch into the responsive Master Layout containing sidebars and main content
       home: const MainLayout(),
     );
   }
