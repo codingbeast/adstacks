@@ -19,7 +19,7 @@ class HeaderWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // 1. Title (Over left of Main Content, indented by paddingLarge to match Main Content padding)
+          // 1. Title
           const SizedBox(width: AppMetrics.paddingLarge),
           Text(
             title,
@@ -30,7 +30,7 @@ class HeaderWidget extends StatelessWidget {
           ),
           const Spacer(),
 
-          // 2. Search Box (Flexible to gracefully shrink on smaller screens without overflowing)
+          // 2. Search Box (Positioned elegantly on the right side)
           Flexible(
             child: Container(
               constraints: const BoxConstraints(maxWidth: 350),
@@ -39,37 +39,25 @@ class HeaderWidget extends StatelessWidget {
           ),
           const SizedBox(width: AppMetrics.paddingLarge),
 
-          // 3. Right Sidebar Header Area (Exactly 320px wide, matching RightSidebarWidget perfectly!)
-          SizedBox(
-            width: 320,
-            child: Padding(
-              // Inset internal items by paddingLarge so they align perfectly with RightSidebarWidget's internal padding!
-              padding: const EdgeInsets.symmetric(horizontal: AppMetrics.paddingLarge),
-              child: Row(
-                children: [
-                  // Left side: Calendar, Notification, Startup icons
-                  IconButton(
-                    icon: const Icon(Icons.calendar_today_outlined, color: AppColors.textPrimary),
-                    onPressed: () {},
-                    padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints(),
-                  ),
-                  AppMetrics.spaceSmall,
-                  NotificationBadgeButton(onTap: () {}, hasUnread: true),
-                  AppMetrics.spaceSmall,
-                  IconButton(
-                    icon: const Icon(Icons.power_settings_new_outlined, color: AppColors.textPrimary),
-                    onPressed: () {},
-                    padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints(),
-                  ),
-                  const Spacer(),
-                  // Right side: Profile icon
-                  const UserAvatar(initials: 'CB'),
-                ],
-              ),
-            ),
+          // 3. Top Right Action Icons & User Avatar (Unified header actions)
+          IconButton(
+            icon: const Icon(Icons.calendar_today_outlined, color: AppColors.textPrimary),
+            onPressed: () {},
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
           ),
+          AppMetrics.spaceSmall,
+          NotificationBadgeButton(onTap: () {}, hasUnread: true),
+          AppMetrics.spaceSmall,
+          IconButton(
+            icon: const Icon(Icons.power_settings_new_outlined, color: AppColors.textPrimary),
+            onPressed: () {},
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+          ),
+          AppMetrics.spaceLarge,
+          const UserAvatar(initials: 'CB'),
+          const SizedBox(width: AppMetrics.paddingLarge),
         ],
       ),
     );

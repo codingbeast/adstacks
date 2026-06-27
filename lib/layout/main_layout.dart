@@ -39,6 +39,7 @@ class _MainLayoutState extends State<MainLayout> {
             )
           : null,
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // 1. Left Sidebar (Global Navigation)
           if (isDesktop)
